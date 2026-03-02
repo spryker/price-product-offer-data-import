@@ -22,11 +22,6 @@ class PriceTypeToIdPriceTypeStep implements DataImportStepInterface
      */
     protected $idPriceTypeCache = [];
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return void
-     */
     public function execute(DataSetInterface $dataSet): void
     {
         $priceTypeName = $dataSet[static::PRICE_TYPE];

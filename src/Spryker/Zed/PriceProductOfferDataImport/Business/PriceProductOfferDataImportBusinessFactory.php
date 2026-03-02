@@ -28,11 +28,6 @@ use Spryker\Zed\PriceProductOfferDataImport\PriceProductOfferDataImportDependenc
  */
 class PriceProductOfferDataImportBusinessFactory extends DataImportBusinessFactory
 {
-    /**
-     * @param \Generated\Shared\Transfer\DataImporterConfigurationTransfer|null $dataImporterConfigurationTransfer
-     *
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
-     */
     public function createPriceProductOfferDataImport(
         ?DataImporterConfigurationTransfer $dataImporterConfigurationTransfer = null
     ): DataImporterInterface {
@@ -58,65 +53,41 @@ class PriceProductOfferDataImportBusinessFactory extends DataImportBusinessFacto
         return $dataImporter;
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createPriceTypeToIdPriceTypeStep(): DataImportStepInterface
     {
         return new PriceTypeToIdPriceTypeStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createStoreToIdStoreStep(): DataImportStepInterface
     {
         return new StoreToIdStoreStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createCurrencyToIdCurrencyStep(): DataImportStepInterface
     {
         return new CurrencyToIdCurrencyStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createProductOfferReferenceToProductOfferDataStep(): DataImportStepInterface
     {
         return new ProductOfferReferenceToProductOfferDataStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createProductOfferToIdProductStep(): DataImportStepInterface
     {
         return new ProductOfferToIdProductStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createPriceProductWriterStep(): DataImportStepInterface
     {
         return new PriceProductWriterStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createPriceProductStoreWriterStep(): DataImportStepInterface
     {
         return new PriceProductStoreWriterStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createPreparePriceDataStep(): DataImportStepInterface
     {
         return new PreparePriceDataStep(
@@ -125,17 +96,11 @@ class PriceProductOfferDataImportBusinessFactory extends DataImportBusinessFacto
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createPriceProductOfferWriterStep(): DataImportStepInterface
     {
         return new PriceProductOfferWriterStep($this->getEventFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductOfferDataImport\Dependency\Facade\PriceProductOfferDataImportToPriceProductFacadeInterface
-     */
     public function getPriceProductFacade(): PriceProductOfferDataImportToPriceProductFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductOfferDataImportDependencyProvider::FACADE_PRICE_PRODUCT);

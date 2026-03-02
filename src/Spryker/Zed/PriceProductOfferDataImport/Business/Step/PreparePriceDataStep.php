@@ -27,10 +27,6 @@ class PreparePriceDataStep implements DataImportStepInterface
      */
     protected $utilEncodingService;
 
-    /**
-     * @param \Spryker\Zed\PriceProductOfferDataImport\Dependency\Facade\PriceProductOfferDataImportToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\DataImport\Dependency\Service\DataImportToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(
         PriceProductOfferDataImportToPriceProductFacadeInterface $priceProductFacade,
         DataImportToUtilEncodingServiceInterface $utilEncodingService
@@ -39,11 +35,6 @@ class PreparePriceDataStep implements DataImportStepInterface
         $this->utilEncodingService = $utilEncodingService;
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return void
-     */
     public function execute(DataSetInterface $dataSet): void
     {
         $priceData = $this->getPriceData($dataSet);
@@ -60,11 +51,6 @@ class PreparePriceDataStep implements DataImportStepInterface
             ->generatePriceDataChecksum($priceData);
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return array
-     */
     protected function getPriceData(DataSetInterface $dataSet): array
     {
         $volumePrices = $this->utilEncodingService->decodeJson(

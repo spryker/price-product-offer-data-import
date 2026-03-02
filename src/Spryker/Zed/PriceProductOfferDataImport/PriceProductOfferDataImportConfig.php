@@ -29,9 +29,6 @@ class PriceProductOfferDataImportConfig extends DataImportConfig
         return $this->buildImporterConfiguration($moduleDataImportDirectory . 'price_product_offer.csv', static::IMPORT_TYPE_PRICE_PRODUCT_OFFER);
     }
 
-    /**
-     * @return string
-     */
     protected function getModuleRoot(): string
     {
         $moduleRoot = realpath(

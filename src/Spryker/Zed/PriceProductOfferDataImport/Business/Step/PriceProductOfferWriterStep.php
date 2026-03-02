@@ -30,19 +30,11 @@ class PriceProductOfferWriterStep extends PublishAwareStep implements DataImport
      */
     protected $eventFacade;
 
-    /**
-     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToEventFacadeInterface $eventFacade
-     */
     public function __construct(DataImportToEventFacadeInterface $eventFacade)
     {
         $this->eventFacade = $eventFacade;
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return void
-     */
     public function execute(DataSetInterface $dataSet): void
     {
         /** @var \Orm\Zed\PriceProductOffer\Persistence\SpyPriceProductOffer|null $priceProductOfferEntity */
@@ -67,9 +59,6 @@ class PriceProductOfferWriterStep extends PublishAwareStep implements DataImport
         $this->addProductUpdateEvent((int)$dataSet[PriceProductOfferDataSetInterface::ID_PRODUCT_CONCRETE]);
     }
 
-    /**
-     * @return void
-     */
     public function afterExecute(): void
     {
         parent::afterExecute();
@@ -82,11 +71,6 @@ class PriceProductOfferWriterStep extends PublishAwareStep implements DataImport
         $this->productEventTransfers = [];
     }
 
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return void
-     */
     protected function addProductUpdateEvent(int $idProductConcrete): void
     {
         $eventEntityTransfer = new EventEntityTransfer();

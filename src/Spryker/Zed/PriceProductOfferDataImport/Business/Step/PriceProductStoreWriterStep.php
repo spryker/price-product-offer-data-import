@@ -19,21 +19,11 @@ class PriceProductStoreWriterStep implements DataImportStepInterface
 
     protected const VALUE_GROSS = PriceProductOfferDataSetInterface::VALUE_GROSS;
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return void
-     */
     public function execute(DataSetInterface $dataSet): void
     {
         $dataSet[PriceProductOfferDataSetInterface::FK_PRICE_PRODUCT_STORE] = $this->getIdPriceProductStore($dataSet);
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return string
-     */
     protected function getIdPriceProductStore(DataSetInterface $dataSet): string
     {
         /** @var \Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore|null $priceProductStoreEntity */
@@ -66,11 +56,6 @@ class PriceProductStoreWriterStep implements DataImportStepInterface
         return $priceProductStoreEntity->getIdPriceProductStore();
     }
 
-    /**
-     * @param string $priceValue
-     *
-     * @return int|null
-     */
     protected function castPriceValue(string $priceValue): ?int
     {
         if (trim($priceValue) === '') {

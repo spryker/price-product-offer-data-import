@@ -22,11 +22,6 @@ class PriceProductOfferDataImportToPriceProductFacadeBridge implements PriceProd
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @param array $priceData
-     *
-     * @return string
-     */
     public function generatePriceDataChecksum(array $priceData): string
     {
         return $this->priceProductFacade->generatePriceDataChecksum($priceData);

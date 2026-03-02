@@ -39,9 +39,6 @@ class PriceProductOfferDataImportPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testPriceProductOfferDataImportFacade(): void
     {
         $productConcreteTransfer = $this->tester->haveProduct();
@@ -67,9 +64,6 @@ class PriceProductOfferDataImportPluginTest extends Unit
         $this->assertTrue($this->hasPriceProductOffers());
     }
 
-    /**
-     * @return void
-     */
     public function testGetImportTypeReturnsTypeOfImporter(): void
     {
         // Arrange
@@ -82,9 +76,6 @@ class PriceProductOfferDataImportPluginTest extends Unit
         $this->assertSame(PriceProductOfferDataImportConfig::IMPORT_TYPE_PRICE_PRODUCT_OFFER, $importType);
     }
 
-    /**
-     * @return bool
-     */
     protected function hasPriceProductOffers(): bool
     {
         return SpyPriceProductOfferQuery::create()->exists();
