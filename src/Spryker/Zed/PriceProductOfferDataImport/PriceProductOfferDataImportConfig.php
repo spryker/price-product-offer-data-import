@@ -13,6 +13,8 @@ use Spryker\Zed\DataImport\DataImportConfig;
 class PriceProductOfferDataImportConfig extends DataImportConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const IMPORT_TYPE_PRICE_PRODUCT_OFFER = 'price-product-offer';
